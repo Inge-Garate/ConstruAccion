@@ -35,7 +35,7 @@ login_manager.login_view = "login"
 
 @app.route('/')
 def home():
-    return render_template('ConstruAccion/templates/home.html')
+    return render_template('/ConstruAccion/templates/home.html')
 
 
 @app.route('/welcome')
