@@ -1,0 +1,24 @@
+{% extends "obra.html" %}
+{% block content %}
+<div class="jumbotron">
+  {% if current_user.is_authenticated %}
+    <p>Hi {{ current_user.username }}!</p>
+    <h1>ALTA DE OBRA</h1>
+    <form method="POST">
+        {# This hidden_tag is a CSRF security feature. #}
+        {{ form.hidden_tag() }}
+        {{ form.nombre_obra.label }} {{ form.nombre_obra() }}<br>
+        {{ form.calle_obra.label }} {{ form.calle_obra() }}<br>
+        {{ form.numero_obra.label }} {{ form.numero_obra() }}<br>
+        {{ form.colonia_obra.label }} {{ form.colonia_obra() }}<br>
+        {{ form.municipio_obra.label }} {{ form.municipio_obra() }}<br>
+        {{ form.estado_obra.label }} {{ form.estado_obra() }}<br>
+        {{ form.cp_obra.label }} {{ form.cp_obra() }}<br>
+        {{ form.submit() }}
+    </form>
+  {% else %}
+    <p>Please login or register!</p>
+  {% endif %}
+</div>
+
+{% endblock %}
